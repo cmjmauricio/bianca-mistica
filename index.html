@@ -302,6 +302,42 @@ footer{padding:70px 0 40px;text-align:center;color:var(--muted);font-size:.85rem
 footer .sig{font-family:"Cinzel Decorative",serif;font-size:1.3rem;color:var(--gold2);margin:14px 0 4px}
 footer img{width:76px;height:76px;margin:0 auto;border-radius:50%;object-fit:cover;object-position:50% 30%;border:1px solid var(--gl);box-shadow:0 0 30px rgba(243,201,94,.3)}
 
+/* ---------- Ilustrações ---------- */
+.art{width:100%;height:auto;display:block;overflow:visible}
+.art-head{width:min(230px,56vw);margin:0 auto 6px;animation:float 7s ease-in-out infinite}
+.art-head.wide{width:min(300px,70vw)}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+.gi{position:relative;border-radius:30px;padding:22px 20px 24px;text-align:center;overflow:hidden;
+  background:radial-gradient(120% 80% at 50% 0%,rgba(107,63,212,.35),rgba(14,10,38,.35) 70%);border:1px solid var(--stroke);transition:transform .6s cubic-bezier(.2,.8,.2,1),border-color .6s}
+.gi:hover{transform:translateY(-8px);border-color:var(--gl)}
+.gi .fig{height:250px;display:grid;place-items:center}
+.gi .fig .art{max-height:250px;width:auto;max-width:100%;animation:float 8s ease-in-out infinite}
+.gi:nth-child(2) .art{animation-delay:-2s}.gi:nth-child(3) .art{animation-delay:-4s}.gi:nth-child(4) .art{animation-delay:-1s}.gi:nth-child(5) .art{animation-delay:-5s}.gi:nth-child(6) .art{animation-delay:-3s}
+.gi h3{font-size:1.02rem;margin-top:12px;color:var(--gold2)}
+.gi p{color:var(--muted);font-size:.92rem;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.1rem}
+.arcano{height:250px;aspect-ratio:2/3.1;border-radius:16px;position:relative;overflow:hidden;animation:float 8s ease-in-out infinite;
+  background:radial-gradient(circle at 50% 42%,#5b38c4 0%,#2a1866 45%,#140b38 80%);border:3px solid var(--gold);box-shadow:0 20px 40px rgba(0,0,0,.45),0 0 40px rgba(243,201,94,.25)}
+.arcano::before{content:"";position:absolute;inset:7px;border:1px solid rgba(243,201,94,.5);border-radius:10px;z-index:2;pointer-events:none}
+.arcano .n,.arcano .t{position:absolute;left:0;right:0;text-align:center;font-family:"Cinzel",serif;color:var(--gold2);z-index:3}
+.arcano .n{top:14px;font-size:.8rem;letter-spacing:.3em}
+.arcano .t{bottom:12px;font-size:.72rem;letter-spacing:.18em;font-weight:700;background:linear-gradient(transparent,rgba(14,10,38,.9) 40%);padding:16px 0 2px}
+.arcano img{position:absolute;left:-6%;width:112%;bottom:22px;
+  -webkit-mask-image:radial-gradient(ellipse 60% 58% at 50% 45%,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse 60% 58% at 50% 45%,#000 60%,transparent 100%)}
+.arcano .rays{position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 40%,rgba(243,201,94,.12) 0 4deg,transparent 4deg 16deg);animation:spin 60s linear infinite}
+.orbart{width:230px;margin:0 auto}
+.orbart.think{animation:shake .12s linear 12}
+.orbart.think .ballcore{animation:ballpulse 1.6s ease-in-out}
+@keyframes ballpulse{50%{filter:brightness(1.7) drop-shadow(0 0 18px #6fe3d6)}}
+.paw-top{width:min(260px,70vw);margin:-10px auto 0}
+.book .sleep{max-width:360px;margin:30px auto 0;animation:float 9s ease-in-out infinite}
+.divider{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 0;color:var(--gold)}
+.divider::before,.divider::after{content:"";height:1px;width:min(220px,22vw);background:linear-gradient(90deg,transparent,var(--gl))}
+.divider::after{transform:scaleX(-1)}
+.divider svg{width:170px;height:22px}
+footer .wink{width:120px;margin:0 auto}
+@media (max-width:900px){.gal{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.gal{grid-template-columns:1fr}.gi .fig{height:220px}.gi .fig .art{max-height:220px}.arcano{height:220px}}
+
 .deco{position:absolute;pointer-events:none;opacity:.5}
 .deco polyline{fill:none;stroke:var(--lilac);stroke-opacity:.45;stroke-width:1}
 .deco circle{fill:#fff}
@@ -349,13 +385,13 @@ footer img{width:76px;height:76px;margin:0 auto;border-radius:50%;object-fit:cov
 <div class="grain"></div>
 <div class="progress" id="prog"></div>
 
-<svg width="0" height="0" style="position:absolute"><defs>
-  <filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-</defs></svg>
+<script src="arte.js"></script>
+<script>document.write(BiancaArt.DEFS)</script>
 
 <header id="hdr">
   <a class="logo" href="#inicio"><img src="bianca_rosto.png" alt=""><span><b>Bianca Rothschild</b><small>Oráculo felino</small></span></a>
   <nav id="nav">
+    <a href="#galeria">Galeria</a>
     <a href="#bianca">A Bianca</a>
     <a href="#tarot">Tarot</a>
     <a href="#oraculos">Oráculos</a>
@@ -398,6 +434,25 @@ footer img{width:76px;height:76px;margin:0 auto;border-radius:50%;object-fit:cov
 
 <div class="ribbon"><div class="track" id="ribbon"></div></div>
 
+<!-- ============ GALERIA ============ -->
+<section id="galeria">
+  <div class="wrap center">
+    <span class="kicker reveal">Galeria</span>
+    <h2 class="reveal d1">Bianca em <em>todos os planos</em> astrais</h2>
+    <p class="lead reveal d2" style="margin-top:12px">Gata de muitas faces (todas fofas). Ela posa para o retrato oficial, mas no dia a dia é vista assim:</p>
+  </div>
+  <div class="wrap gal">
+    <div class="gi reveal"><div class="fig"><div class="arcano"><div class="rays"></div><span class="n">0</span><img src="bianca_busto.png" alt="Bianca de chapéu de bruxa"><span class="t">A GATA MAGA</span></div></div>
+      <h3>O retrato oficial</h3><p>Arcano 0: a única carta do baralho que olha de volta.</p></div>
+    <div class="gi reveal d1"><div class="fig" data-art="crystal"></div><h3>Na bola de cristal</h3><p>Vê o seu futuro. E, às vezes, só o reflexo do próprio bigode.</p></div>
+    <div class="gi reveal d2"><div class="fig" data-art="moon"></div><h3>Na lua crescente</h3><p>Consultas noturnas sujeitas a soneca. Volta na Lua Cheia.</p></div>
+    <div class="gi reveal"><div class="fig" data-art="stargazer"></div><h3>Contando estrelas</h3><p>Já contou três. Depois dormiu. Recomeça amanhã.</p></div>
+    <div class="gi reveal d1"><div class="fig" data-art="peek"></div><h3>Espiando a carta</h3><p>Ela sempre vê a carta antes de você. Não adianta esconder.</p></div>
+    <div class="gi reveal d2"><div class="fig" data-art="paw"></div><h3>A pata do destino</h3><p>A carta escolhida é sempre a que ela empurra da mesa.</p></div>
+  </div>
+</section>
+<div class="divider" data-div></div>
+
 <!-- ============ FELIS ============ -->
 <section id="bianca">
   <div class="wrap felis">
@@ -425,8 +480,10 @@ footer img{width:76px;height:76px;margin:0 auto;border-radius:50%;object-fit:cov
 </section>
 
 <!-- ============ TAROT ============ -->
+<div class="divider" data-div></div>
 <section id="tarot">
   <div class="wrap center">
+    <div class="art-head reveal" data-art="peek"></div>
     <span class="kicker reveal">Leituras de tarot</span>
     <h2 class="reveal d1">Escolha sua <em>carta</em> — ou deixe a pata escolher</h2>
     <p class="lead reveal d2" style="margin-top:12px">Tarô de Marselha e Rider-Waite, lidos com intuição, carinho e um leve desdém felino por perguntas do tipo “ele vai voltar?”. Toda leitura vem com resumo em PDF e pelo menos um pelo de brinde.</p>
@@ -451,6 +508,7 @@ footer img{width:76px;height:76px;margin:0 auto;border-radius:50%;object-fit:cov
 </section>
 
 <!-- ============ ORÁCULOS ============ -->
+<div class="divider" data-div></div>
 <section id="oraculos">
   <div class="wrap center">
     <span class="kicker reveal">Sala dos oráculos · grátis</span>
@@ -465,6 +523,7 @@ footer img{width:76px;height:76px;margin:0 auto;border-radius:50%;object-fit:cov
   </div>
   <div class="wrap">
     <div class="opanel on" id="o-carta">
+      <div class="paw-top" data-art="paw"></div>
       <h3>Pense numa pergunta e escolha uma carta</h3>
       <div class="cards3" id="cards3"></div>
       <div class="verdict" id="v-carta"><p class="small">A Bianca embaralhou. Duas cartas caíram da mesa, mas ela diz que foi “parte do ritual”.</p></div>
@@ -472,7 +531,7 @@ footer img{width:76px;height:76px;margin:0 auto;border-radius:50%;object-fit:cov
     </div>
     <div class="opanel" id="o-bigodes">
       <h3>Faça uma pergunta de sim ou não</h3>
-      <div class="orb" id="orb"><img src="bianca_rosto.png" alt=""></div>
+      <div class="orbart" id="orb" data-art="crystal"></div>
       <div class="whisk"><input id="qBig" placeholder="Ex.: devo pedir aumento esta semana?" maxlength="120"><button class="btn gold" id="askBig">Consultar os bigodes</button></div>
       <div class="verdict" id="v-big"></div>
     </div>
@@ -482,8 +541,10 @@ footer img{width:76px;height:76px;margin:0 auto;border-radius:50%;object-fit:cov
 </section>
 
 <!-- ============ ASTROLOGIA ============ -->
+<div class="divider" data-div></div>
 <section id="astrologia">
   <div class="wrap center">
+    <div class="art-head reveal" data-art="stargazer"></div>
     <span class="kicker reveal">Astrologia</span>
     <h2 class="reveal d1">O céu do dia em que <em>você nasceu</em></h2>
     <p class="lead reveal d2" style="margin-top:12px">Escolha seu signo e veja sua constelação ganhar forma, com o horóscopo felino da semana. Para algo mais profundo que uma soneca, há os mapas logo abaixo.</p>
@@ -502,8 +563,10 @@ footer img{width:76px;height:76px;margin:0 auto;border-radius:50%;object-fit:cov
 </section>
 
 <!-- ============ DEPOIMENTOS ============ -->
+<div class="divider" data-div></div>
 <section id="depoimentos">
   <div class="wrap center">
+    <div class="art-head reveal" data-art="wink" style="width:min(170px,44vw)"></div>
     <span class="kicker reveal">Depoimentos</span>
     <h2 class="reveal d1">Miados de <em>satisfação</em></h2>
     <p class="lead reveal d2" style="margin-top:12px">Humanos, gatos e até um cachorro. Bianca responde a todos — quando acorda.</p>
@@ -512,6 +575,7 @@ footer img{width:76px;height:76px;margin:0 auto;border-radius:50%;object-fit:cov
 </section>
 
 <!-- ============ AGENDAR ============ -->
+<div class="divider" data-div></div>
 <section id="agendar">
   <div class="wrap book">
     <div>
@@ -523,6 +587,8 @@ footer img{width:76px;height:76px;margin:0 auto;border-radius:50%;object-fit:cov
         <div><i>🖥️</i><span><b>Consultas on-line</b><br><span class="small">Vídeo, áudio ou texto — para todo o Brasil (e qualquer telhado)</span></span></div>
         <div><i>💳</i><span><b>Pagamento</b><br><span class="small">Pix ou cartão. Sachês são aceitos apenas como gorjeta.</span></span></div>
       </div>
+      <div class="sleep reveal" data-art="moon"></div>
+      <p class="small center" style="margin-top:-6px">Se a resposta demorar, ela está aqui. Não acorde.</p>
       <div style="margin-top:34px" class="reveal d3" id="faq"></div>
     </div>
     <form class="form reveal d2" id="form">
@@ -544,7 +610,7 @@ footer img{width:76px;height:76px;margin:0 auto;border-radius:50%;object-fit:cov
 </main>
 
 <footer>
-  <img src="bianca_rosto.png" alt="">
+  <div class="wink" data-art="wink"></div>
   <div class="sig">Bianca Rothschild</div>
   <p>Oráculo felino · Tarot · Astrologia · Mystic Career Consulting</p>
   <p style="margin-top:6px">Feito com ronrons, poeira de estrelas e nenhum copo inteiro · © <span id="yr"></span></p>
@@ -670,6 +736,13 @@ const poly=(pts,s=1)=>pts.map(p=>p.map(v=>v*s).join(',')).join(' ');
 function constSVG(lines,w=100,h=100,r=2.2){let out='',seen=new Set();
  lines.forEach(l=>{out+=`<polyline points="${poly(l)}"/>`; l.forEach(p=>{const k=p.join();if(!seen.has(k)){seen.add(k);out+=`<circle cx="${p[0]}" cy="${p[1]}" r="${r*(0.7+Math.random()*.6)}"/>`}})});
  return `<svg viewBox="-6 -6 ${w+12} ${h+12}" aria-hidden="true">${out}</svg>`}
+
+/* ================= ILUSTRAÇÕES ================= */
+$$('[data-art]').forEach(el=>{const f=BiancaArt.ART[el.dataset.art];if(f)el.innerHTML=f()});
+(function(){const ph=[[0,"#1a1540"],[.25,"half-l"],[.5,"#ffe7a6"],[.75,"half-r"],[1,"#1a1540"]];
+ const m=(x,t)=>t==='half-l'?`<circle cx="${x}" cy="11" r="7" fill="#1a1540" stroke="#f3c95e" stroke-width=".8"/><path d="M${x} 4 A7 7 0 0 1 ${x} 18Z" fill="#ffe7a6"/>`:
+  t==='half-r'?`<circle cx="${x}" cy="11" r="7" fill="#1a1540" stroke="#f3c95e" stroke-width=".8"/><path d="M${x} 4 A7 7 0 0 0 ${x} 18Z" fill="#ffe7a6"/>`:`<circle cx="${x}" cy="11" r="7" fill="${t}" stroke="#f3c95e" stroke-width=".8"/>`;
+ const s=`<svg viewBox="0 0 170 22" aria-hidden="true">${ph.map((p,i)=>m(17+i*34,p[1])).join('')}</svg>`;$$('[data-div]').forEach(d=>d.innerHTML=s)})();
 
 /* ================= RENDER ================= */
 $('#tarotGrid').innerHTML=TAROT.map(tcard).join('');
